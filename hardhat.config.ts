@@ -48,7 +48,7 @@ export default {
   networks,
 
   solidity: {
-    version: "0.8.18",
+    version: "0.8.20",
     settings: {
       optimizer: {
         enabled: true,

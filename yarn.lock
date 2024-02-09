@@ -640,6 +640,16 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@layerzerolabs/lz-evm-oapp-v2@^2.0.25":
+  version "2.0.25"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-evm-oapp-v2/-/lz-evm-oapp-v2-2.0.25.tgz#a10c89ec988630c712d115098ccc519f240f3436"
+  integrity sha512-UW5HY1/2eXj1jOvqCnVhKxcdyaptFppeDFOo8AuF6ZfOj7xO6Dj/vaXaJYFHgDbxm1r9XwzcXH27xYPqVjCOTg==
+
+"@layerzerolabs/lz-evm-protocol-v2@^2.0.25":
+  version "2.0.25"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-evm-protocol-v2/-/lz-evm-protocol-v2-2.0.25.tgz#c070d2a4ba83d4db22198fc54cce9088ec1de69c"
+  integrity sha512-EyyieamTgu2yFd5hLJ6B/vMCMKItGIHUPaa2X1NbdJTUEKyYWGupxXZUY7N/EXedfJhYdUVcNt1ZYjp6HgsYlw==
+
 "@ljharb/through@^2.3.11":
   version "2.3.12"
   resolved "https://registry.yarnpkg.com/@ljharb/through/-/through-2.3.12.tgz#c418c43060eee193adce48b15c2206096a28e9ea"
