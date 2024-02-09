@@ -8,7 +8,6 @@ import "hardhat-deploy";
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-solhint";
 import "@nomiclabs/hardhat-etherscan";
-import "@primitivefi/hardhat-dodoc";
 import "@typechain/ethers-v5";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
@@ -68,7 +67,7 @@ export default {
   etherscan: {
     apiKey: {
       sepolia: getEtherscanApiKey(),
-      mainnet: getEtherscanApiKey(),
+      mainnet: getEtherscanApiKey()
     }
   },
   gasReporter: {
