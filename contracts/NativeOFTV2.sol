@@ -5,25 +5,30 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@layerzerolabs/lz-evm-oapp-v2/contracts/oft/OFT.sol";
 
-import "./OFTV2.sol";
-
-contract NativeOFTV2 is OFTV2, ReentrancyGuard {
+contract NativeOFTV2 is OFT, ReentrancyGuard {
     uint public outboundAmount;
 
     event Deposit(address indexed _dst, uint _amount);
     event Withdrawal(address indexed _src, uint _amount);
 
+    /**
+     * @dev Constructor for the OFT contract.
+     * @param _name The name of the OFT.
+     * @param _symbol The symbol of the OFT.
+     * @param _lzEndpoint The LayerZero endpoint address.
+     * @param _delegate The delegate capable of making OApp configurations inside of the endpoint.
+     */
     constructor(
         string memory _name,
         string memory _symbol,
-        uint8 _sharedDecimals,
-        address _lzEndpoint
-    ) OFTV2(_name, _symbol, _sharedDecimals, _lzEndpoint) {}
+        address _lzEndpoint,
+        address _delegate
+    ) OFT(_name, _symbol, _lzEndpoint, _delegate) {}
 
     /************************************************************************
      * public functions
      ************************************************************************/
-    function sendFrom(
+/*    function sendFrom(
         address _from,
         uint16 _dstChainId,
         bytes32 _toAddress,
@@ -61,7 +66,7 @@ contract NativeOFTV2 is OFTV2, ReentrancyGuard {
             _callParams.zroPaymentAddress,
             _callParams.adapterParams
         );
-    }
+    }*/
 
     function deposit() public payable {
         _mint(msg.sender, msg.value);
@@ -78,7 +83,7 @@ contract NativeOFTV2 is OFTV2, ReentrancyGuard {
         require(success, "NativeOFTV2: failed to unwrap");
         emit Withdrawal(msg.sender, _amount);
     }
-
+/*
     function _send(
         address _from,
         uint16 _dstChainId,
@@ -148,7 +153,7 @@ contract NativeOFTV2 is OFTV2, ReentrancyGuard {
 
         emit SendToChain(_dstChainId, _from, _toAddress, amount);
     }
-
+*/
     function _debitFromNative(
         address _from,
         uint _amount
@@ -219,7 +224,7 @@ contract NativeOFTV2 is OFTV2, ReentrancyGuard {
         uint16,
         address _toAddress,
         uint _amount
-    ) internal override returns (uint) {
+    ) internal /*override*/ returns (uint) {
         outboundAmount -= _amount;
         _burn(address(this), _amount);
         (bool success, ) = _toAddress.call{value: _amount}("");
